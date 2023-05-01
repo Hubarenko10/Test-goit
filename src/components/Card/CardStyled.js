@@ -19,14 +19,3 @@ display: flex;
 margin-left: auto;
 margin-right: auto;
 `
-export const Line = styled.p`
-position: absolute;
-background-color: #EBD8FF;
-&:before{
-content: "";
-box-shadow: 0px 3.43693px 3.43693px rgba(0, 0, 0, 0.06), 
-inset 0px -1.71846px 3.43693px #AE7BE3, 
-inset 0px 3.43693px 2.5777px #FBF8FF;
-}
-
-`

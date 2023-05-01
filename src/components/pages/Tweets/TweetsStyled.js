@@ -4,13 +4,12 @@ import styled from "styled-components";
 export const BackLinkRef = styled(Link)`
   display: flex;
   align-items: center;
+  text-align: center;
   color: #0077cc;
   text-decoration: none;
   font-size: 20px;
   margin-right: 10px;
-  &:not(:last-child){
-    margin-right: 10px;
-}  
+  margin-bottom: 20px;
   &:hover {
     color: #0055aa;
     text-decoration: underline;

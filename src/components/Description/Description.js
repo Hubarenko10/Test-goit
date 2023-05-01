@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import {
   DescriptionBox,
   FollowBtn,
@@ -7,38 +7,41 @@ import {
   Name,
   Tweets,
 } from './DescriptionStyled';
-import { updateUser } from 'api';
 
-export const Description = ({id,tweets,name,followers}) => {
-    const [active,setActive] = useState(false)
-    const [following, setFollowing] = useState(
-      localStorage.getItem(`following-${id}`) === 'true' || false
-    );
-    const [currentFollowers, setCurrentFollowers] = useState(followers);
-    const credentials = {
-      followers: following ? currentFollowers - 1 : currentFollowers + 1,
-    };
-  
-    const handleClick = async () => {
-      setActive(prevActive => !prevActive);
-      setFollowing(!following);
-      try {
-        const response = await updateUser(id, credentials);
-        setCurrentFollowers(response.followers);
-        localStorage.setItem(`following-${id}`, !following);
-      } catch (error) {
-        console.log(error.message);
-      }
-    };
-  
+export const Description = ({ id, tweets, name, followers,following }) => {
+  const [active, setActive] = useState(following);
+  const [newFollower, setNewFollower] = useState(parseInt(followers));
+
+  const handleClick = () => {
+    const newActive = !active;
+    const newFollowerCount = newActive ? newFollower + 1 : newFollower - 1;
+    setActive(newActive);
+    setNewFollower(newFollowerCount);
+    localStorage.setItem(`following-${id}`, newActive.toString());
+    localStorage.setItem(`followers-${id}`, newFollowerCount.toString());
+  };
+
+  useEffect(() => {
+    const savedActive = localStorage.getItem(`following-${id}`);
+    const savedFollowers = localStorage.getItem(`followers-${id}`);
+    if (savedActive !== null) {
+      setActive(savedActive === 'true');
+    }
+    if (savedFollowers !== null) {
+      setNewFollower(parseInt(savedFollowers));
+    }
+  }, [id]);
+
   return (
     <DescriptionBox>
       <Name>{name}</Name>
-      <Tweets>{tweets} Tweets</Tweets>
-      <Followers>{followers} FOLLOWERS</Followers>
-      {active ? 
-      <FollowBtnActive onClick={handleClick}>FOLLOWING</FollowBtnActive> : 
-      <FollowBtn onClick={handleClick}>FOLLOW</FollowBtn>}
+          <Tweets>{tweets} Tweets</Tweets>
+          <Followers>{newFollower} FOLLOWERS</Followers>
+          {active ? (
+            <FollowBtnActive onClick={handleClick}>FOLLOWING</FollowBtnActive>
+          ) : (
+            <FollowBtn onClick={handleClick}>FOLLOW</FollowBtn>
+          )}
     </DescriptionBox>
   );
 };

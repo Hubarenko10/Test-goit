@@ -3,16 +3,22 @@ import { BsArrowLeft } from "react-icons/bs";
 import { getUsers } from "api";
 import { useEffect, useState } from "react";
 import { CardList } from "components/CardList/CardList";
+import { Dropdown } from "components/Dropdown/Dropdown";
 
 const Tweets = () => {
   const [users, setUsers] = useState([]);
   const [visibleUsers, setVisibleUsers] = useState([]);
+  const [filter, setFilter] = useState("Show All");
 
   useEffect(() => {
     async function getUserTweets() {
       try {
         const data = await getUsers();
-        setUsers(data);
+        const dataWithFollowingState = data.map((card) => ({
+          ...card,
+          following: false,
+        }));
+        setUsers(dataWithFollowingState);
       } catch (error) {
         console.log(error);
       }
@@ -27,17 +33,19 @@ const Tweets = () => {
   }, [users]);
 
   const loadMore = () => {
-    setVisibleUsers((prevVisibleUsers) => [
-      ...prevVisibleUsers,
-      ...users.slice(prevVisibleUsers.length, prevVisibleUsers.length + 3),
-    ]);
+    setVisibleUsers((prevVisibleUsers) => {
+      const remainingUsers = filter === "Show All"
+        ? users.slice(prevVisibleUsers.length)
+        : users.filter((user) => user[filter.toLowerCase()]).slice(prevVisibleUsers.length);
+      return [...prevVisibleUsers, ...remainingUsers.slice(0, 3)];
+    });
   };
 
   return (
     <>
       <BackLinkRef to="/">
         <BsArrowLeft />
-        Go back
+        <span style={{marginLeft:10}}>Go back</span>
       </BackLinkRef>
       <CardList user={visibleUsers} />
       {visibleUsers.length < users.length && (

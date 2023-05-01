@@ -42,6 +42,7 @@ color: #EBD8FF;
 `
 
 export const FollowBtn = styled.button`
+cursor:pointer;
 width: 196px;
 height: 50px;
 display: flex;
@@ -57,6 +58,7 @@ margin-left: auto;
 margin-right: auto;
 `
 export const FollowBtnActive = styled.button`
+cursor:pointer;
 width: 196px;
 height: 50px;
 display: flex;

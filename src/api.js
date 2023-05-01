@@ -10,12 +10,3 @@ return data
     console.log("error")
 }
 }
-
-export const updateUser = async (userId, credentials) => {
-    try {
-      const { data } = await axios.put(`/profile/${userId}`, credentials);
-      return data;
-    } catch (error) {
-      console.log(error.message);
-    }
-  };
