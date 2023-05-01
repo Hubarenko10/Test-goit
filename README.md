@@ -6,7 +6,6 @@
 
 <h2>Tweetsbook - Main Links</h2>
 [Github](https://github.com/Hubarenko10/Test-goit)
-[Live-page](https://hubarenko10.github.io/Test-goit/)
 
 <h2>Used Technologies:</h2>
 <li>React</li>
