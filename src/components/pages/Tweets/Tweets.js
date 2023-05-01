@@ -3,12 +3,12 @@ import { BsArrowLeft } from "react-icons/bs";
 import { getUsers } from "api";
 import { useEffect, useState } from "react";
 import { CardList } from "components/CardList/CardList";
-import { Dropdown } from "components/Dropdown/Dropdown";
+
 
 const Tweets = () => {
   const [users, setUsers] = useState([]);
   const [visibleUsers, setVisibleUsers] = useState([]);
-  const [filter, setFilter] = useState("Show All");
+  const [filter] = useState("Show All");
 
   useEffect(() => {
     async function getUserTweets() {
