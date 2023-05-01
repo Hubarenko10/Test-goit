@@ -5,7 +5,7 @@
 <p>Tweets is a free social networking site where users broadcast short posts known as tweets. These tweets can contain text, videos, photos or links</p>
 
 <h2>Tweetsbook - Main Links</h2>
-<p>Github-repo</p><a>https://github.com/Hubarenko10/Test-goit</a> 
+[Github](https://github.com/Hubarenko10/Test-goit)
 
 
 
