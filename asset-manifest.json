@@ -1,13 +1,21 @@
 {
   "files": {
-    "main.css": "/react-homework-template/static/css/main.7acaea2f.css",
-    "main.js": "/react-homework-template/static/js/main.07d3183d.js",
-    "index.html": "/react-homework-template/index.html",
-    "main.7acaea2f.css.map": "/react-homework-template/static/css/main.7acaea2f.css.map",
-    "main.07d3183d.js.map": "/react-homework-template/static/js/main.07d3183d.js.map"
+    "main.css": "/Test-goit/static/css/main.33988b23.css",
+    "main.js": "/Test-goit/static/js/main.4ab5e11b.js",
+    "static/js/283.f8b63728.chunk.js": "/Test-goit/static/js/283.f8b63728.chunk.js",
+    "static/js/716.6c791ea3.chunk.js": "/Test-goit/static/js/716.6c791ea3.chunk.js",
+    "static/js/799.b57401b0.chunk.js": "/Test-goit/static/js/799.b57401b0.chunk.js",
+    "static/media/hero.png": "/Test-goit/static/media/hero.b3d9942b3f9d5dad1ff0.png",
+    "static/media/Logo.svg": "/Test-goit/static/media/Logo.e917114d7945c04c85a8946a331d28b6.svg",
+    "index.html": "/Test-goit/index.html",
+    "main.33988b23.css.map": "/Test-goit/static/css/main.33988b23.css.map",
+    "main.4ab5e11b.js.map": "/Test-goit/static/js/main.4ab5e11b.js.map",
+    "283.f8b63728.chunk.js.map": "/Test-goit/static/js/283.f8b63728.chunk.js.map",
+    "716.6c791ea3.chunk.js.map": "/Test-goit/static/js/716.6c791ea3.chunk.js.map",
+    "799.b57401b0.chunk.js.map": "/Test-goit/static/js/799.b57401b0.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.7acaea2f.css",
-    "static/js/main.07d3183d.js"
+    "static/css/main.33988b23.css",
+    "static/js/main.4ab5e11b.js"
   ]
 }
